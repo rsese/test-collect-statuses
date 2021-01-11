@@ -1,1 +1,3 @@
 # test-collect-statuses
+
+test
