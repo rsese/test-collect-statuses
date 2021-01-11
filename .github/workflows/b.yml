@@ -1,0 +1,16 @@
+name: b
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  b-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: b payload
+        run: |
+          sleep 35
+          cat $GITHUB_EVENT_PATH

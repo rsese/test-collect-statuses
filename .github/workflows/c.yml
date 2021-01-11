@@ -1,0 +1,17 @@
+name: c
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  c-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: c payload
+        run: |
+          sleep 56
+          cat $GITHUB_EVENT_PATH
+          exit 1
