@@ -20,7 +20,7 @@ jobs:
         run: |
           TRIGGERED_FROM=$(cat $GITHUB_EVENT_PATH | jq -r '.workflow_run .name')
           HEAD_SHA=$(cat $GITHUB_EVENT_PATH | jq -r '.workflow_run .head_sha')
-          CHECK_RUNS=$(curl --silent -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/commits/${HEAD_SHA}/check-runs | jq ".check_runs | .[] | {job_name:.name,job_status:.status,job_conclusion:.conclusion}")
+          CHECK_RUNS=$(curl --silent -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/commits/${HEAD_SHA}/check-runs | jq ".check_runs | .[] | {job_name:.name,job_status:.status,job_conclusion:.conclusion,started_at:.started_at,completed_at:.completed_at}")
           echo "*****************"
           echo "Triggered from workflow: ${TRIGGERED_FROM}"
           echo "commit head sha: ${HEAD_SHA}"
